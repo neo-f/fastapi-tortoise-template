@@ -1,0 +1,34 @@
+version: '3'
+
+volumes:
+  local_postgres_data: { }
+
+services:
+  demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: app_local
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    volumes:
+      - .:/work
+    environment:
+      - POSTGRES_DSN=postgres://demo:demo@postgres:5432/demo
+      - POSTGRES_DSN_TEST=postgres://demo:demo@postgres:5432/demo_{}
+    ports:
+      - 8000:8000
+    command:
+      - /scripts/start-production.sh
+
+  postgres:
+    image: postgres:13-alpine
+    ports:
+      - 15432:5432
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=demo
+      - POSTGRES_PASSWORD=demo
+      - POSTGRES_DB=demo
