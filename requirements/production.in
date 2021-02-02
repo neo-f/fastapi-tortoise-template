@@ -1,21 +1,22 @@
 # Core
 # ------------------------------------------------------------------------------
-fastapi            # https://github.com/tiangolo/fastapi
-pydantic           # https://github.com/samuelcolvin/pydantic
-requests           # https://github.com/psf/requests
-uvicorn[standard]  # https://github.com/encode/uvicorn
-gunicorn           # https://github.com/benoitc/gunicorn
+fastapi                      # https://github.com/tiangolo/fastapi
+python-multipart             # https://andrew-d.github.io/python-multipart
+email-validator              # https://github.com/JoshData/python-email-validator
 
-httpx
-python-multipart
-typer
+pydantic                     # https://github.com/samuelcolvin/pydantic
+uvicorn[standard]            # https://github.com/encode/uvicorn
+gunicorn                     # https://github.com/benoitc/gunicorn
+
+httpx                        # https://www.python-httpx.org
+typer                        # https://github.com/tiangolo/typer
 
 # Database
 # ------------------------------------------------------------------------------
-asyncpg            # https://github.com/MagicStack/asyncpg
-tortoise-orm       # https://github.com/tortoise/tortoise-orm
-aerich             # https://github.com/long2ice/aerich
+asyncpg                      # https://github.com/MagicStack/asyncpg
+tortoise-orm                 # https://github.com/tortoise/tortoise-orm
+aerich                       # https://github.com/long2ice/aerich
 
 # Sentry
 # ------------------------------------------------------------------------------
-sentry-sdk         # https://github.com/getsentry/sentry-python
+sentry-sdk                   # https://github.com/getsentry/sentry-python

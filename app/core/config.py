@@ -10,10 +10,6 @@ class Settings(BaseSettings):
     sentry_dsn: Optional[AnyHttpUrl] = None
 
     postgres_dsn: PostgresDsn = "postgres://demo:demo@localhost:15432/demo"
-    postgres_ssl: bool = False
-    postgres_ca_path: Optional[FilePath]
-    postgres_key_path: Optional[FilePath]
-    postgres_cert_path: Optional[FilePath]
 
     # pagination
     default_limit: int = 10
@@ -42,8 +38,3 @@ db_config = generate_config(
     db_url=settings.postgres_dsn,
     app_modules={"models": ["app.models", "aerich.models"]},
 )
-if settings.postgres_ssl:
-    ssl_ctx = ssl.create_default_context(cafile=str(settings.postgres_ca_path))
-    ssl_ctx.load_cert_chain(certfile=settings.postgres_cert_path, keyfile=settings.postgres_key_path)
-    ssl_ctx.check_hostname = False
-    db_config["connections"]["default"]["credentials"]["ssl"] = ssl_ctx

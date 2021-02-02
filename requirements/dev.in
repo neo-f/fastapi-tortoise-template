@@ -1,4 +1,4 @@
--r ./test.in
+-r ./production.in
 
 # Code quality
 # ------------------------------------------------------------------------------
@@ -8,6 +8,6 @@ prospector         # https://github.com/PyCQA/prospector
 
 # Tools
 # ------------------------------------------------------------------------------
-ipython
-pip-tools
-pgcli
+ipython            # https://ipython.readthedocs.io
+pip-tools          # https://github.com/jazzband/pip-tools
+pgcli              # https://www.pgcli.com

@@ -23,12 +23,11 @@ def runserver(
 @cmd.command(help="update all dependencies' versions and apply in requirements folder")
 def update_dep():
     files = [
-        "pip-compile requirements/production.in --no-emit-index-url -U -i https://mirrors.aliyun.com/pypi/simple/ -o requirements/production.txt -o requirements.txt",
-        "pip-compile requirements/test.in --no-emit-index-url -U -i https://mirrors.aliyun.com/pypi/simple/ -o requirements/test.txt",
-        "pip-compile requirements/dev.in --no-emit-index-url -U -i https://mirrors.aliyun.com/pypi/simple/ -o requirements/dev.txt"
+        "pip-compile requirements/production.in --no-emit-index-url -U -i https://mirrors.aliyun.com/pypi/simple/ -o requirements.txt",
+        "pip-compile requirements/dev.in --no-emit-index-url -U -i https://mirrors.aliyun.com/pypi/simple/ -o requirements.dev.txt"
     ]
     for file in files:
-        subprocess.call( file.split(" "))
+        subprocess.call(file.split(" "))
 
 
 @cmd.command(help="django-like dbshell command use pgcli")
